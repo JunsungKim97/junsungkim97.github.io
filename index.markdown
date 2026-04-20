@@ -41,26 +41,39 @@ title: Home
   <section id="education">
     <h2 class="section-title">Education</h2>
     <div class="card">
-      <strong>Your University Name</strong>
-      <div class="meta">B.S. in Your Major, 20XX - 20XX</div>
+      <strong>Yonsei University</strong>
+      <div class="meta">Ph.D. student in Electrical and Electronic Engineering, 2024 - Present</div>
+      <div class="meta">Advisor: Prof. Won Woo Ro</div>
+    </div>
+    <div class="card">
+      <strong>Yonsei University</strong>
+      <div class="meta">M.S. in Electrical and Electronic Engineering, 2022 - 2024</div>
+      <div class="meta">Advisor: Prof. Won Woo Ro</div>
+    </div>
+    <div class="card">
+      <strong>Yonsei University</strong>
+      <div class="meta">B.S. in Electrical and Electronic Engineering, 2016 - 2022</div>
+      <div class="meta">Advisor: Prof. Won Woo Ro</div>
     </div>
   </section>
 
   <section id="experience">
-    <h2 class="section-title">Experience</h2>
+    <h2 class="section-title">Research Experience</h2>
     <div class="card">
-      <strong>Your Company / Lab</strong>
-      <div class="meta">Role, 20XX - Present</div>
-      <div>Add 1-2 lines about what you worked on.</div>
+      <strong>University of California, San Diego (UCSD)</strong>
+      <div class="meta">Visiting Scholar in Computer Science & Engineering, Feb. 2025 - Feb. 2026</div>
+      <div class="meta">Advisor: Prof. Yufei Ding</div>
+      <!-- <div>Add 1-2 lines about what you worked on.</div> -->
     </div>
   </section>
 
   <section id="publications">
-    <h2 class="section-title">Selected Publications</h2>
+    <h2 class="section-title">Publications</h2>
     <div class="card">
-      <strong>Title of Paper or Project</strong>
-      <div class="meta">Conference / Venue, Year</div>
-      <div>Short description and link placeholders (PDF / Code / Bib).</div>
+      <strong>(To appear) Reducing Page Faults via Invalidation-based Mapping Propagation in Multi-GPU Systems</strong>
+      <div class="authors"><u>Junsung Kim</u>, Dongho Ha, Sungwoo Kim, Wonho Cho, Sungbin Kim, Yufei Ding, and Won Woo Ro</div>
+      <div class="meta">International Symposium on Computer Architecture (ISCA), 2026</div>
+      <!-- <div>Short description and link placeholders (PDF / Code / Bib).</div> -->
     </div>
   </section>
 
