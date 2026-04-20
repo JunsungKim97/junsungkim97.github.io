@@ -4,83 +4,380 @@ title: Home
 ---
 
 <style>
-  .home-wrap { max-width: 920px; margin: 0 auto; }
-  .top-nav { display: flex; gap: 1.2rem; margin: 0.5rem 0 1.5rem; font-weight: 600; }
-  .top-nav a { text-decoration: none; }
+  /* Minima theme wrapper limits page width; override it here. */
+  .page-content .wrapper {
+    max-width: 1400px;
+  }
+
+  .home-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    font-family: "Inter", "Avenir Next", "Segoe UI", "Noto Sans", Arial, sans-serif;
+    letter-spacing: -0.01em;
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr);
+    column-gap: 1.2rem;
+    /* Center main content column without transform (prevents blur). */
+    margin-left: calc(50% - 380px - (130px + 1.2rem) / 2);
+    margin-right: auto;
+  }
+  .top-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin: 0.5rem 0 0;
+    font-weight: 600;
+    position: sticky;
+    top: 1rem;
+    align-self: start;
+  }
+  .top-nav a {
+    text-decoration: none;
+    line-height: 1.3;
+    color:rgb(141, 162, 191);
+    transition: color 0.18s ease;
+  }
+  .top-nav a:visited { color: #0ACAE1; }
+  .top-nav a:hover { color: #0ea5e9; }
+  .top-nav a:active { color: #0284c7; }
+  .top-nav a.is-active {
+    color: #0284c7;
+    font-weight: 605;
+  }
+  .main-content { min-width: 0; }
   .hero { margin-bottom: 1.75rem; }
   .hero h1 { margin-bottom: 0.35rem; }
-  .section-title { margin-top: 2.2rem; margin-bottom: 0.7rem; }
-  .card {
-    border: 1px solid #e6e6e6;
-    border-radius: 10px;
-    padding: 0.9rem 1rem;
-    margin-bottom: 0.8rem;
-    background: #fafafa;
+  .section-title {
+    margin-top: 2.2rem;
+    margin-bottom: 0.7rem;
+    font-size: 1.65rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: #1f2937;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid #e5e7eb;
   }
-  .meta { color: #666; font-size: 0.95rem; margin-top: 0.2rem; }
+  /* Caption-style rows used for non-publication sections. */
+  .cap-list { margin: 0.6rem 0 0; padding: 0; list-style: none; }
+  .cap-item { margin: 0.65rem 0 0.9rem; }
+  .cap-title { font-weight: 600; font-size: 1rem; line-height: 1.35; }
+  .cap-sub { line-height: 1.3; margin-top: 0.1rem; color: #666; font-size: 0.95rem; }
+  .cap-note { line-height: 1.3; margin-top: 0.08rem; color: #8a8a8a; font-size: 0.93rem; }
+  /* Publications section: group header (e.g., Conference / Journal). */
+  .pub-group {
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  /* One publication row: left badge + right content. */
+  .pub-item {
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr);
+    column-gap: 1rem;
+    align-items: start;
+    margin: 1rem 0 1.3rem;
+  }
+  /* Left label box (venue + year shorthand). */
+  .pub-badge {
+    display: inline-flex;
+    width: 110px;
+    justify-content: center;
+    align-items: center;
+    padding: 0.22rem 0.72rem;
+    border-radius: 6px;
+    /* background: #b1122a; */
+    background: #0ACCE0;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 650;
+    line-height: 1.10;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  }
+  /* Wrapper for title/authors/venue/buttons on the right side. */
+  .pub-content {
+    border-radius: 10px;
+    padding: 0.1rem 0.1rem 0.2rem;
+  }
+  /* Publication text blocks. */
+  .pub-title { font-weight: 600; font-size: 1.00rem; line-height: 1.35; font-family: inherit; }
+  .pub-authors { font-style: normal; line-height: 1.4; margin-top: 0.15rem; font-family: inherit; }
+  /* Prevent underline from overlapping descenders like g/y/p. */
+  .pub-authors u {
+    text-decoration-skip-ink: none;
+    text-underline-offset: 0.30em;
+    /* text-decoration-thickness: 1.5px; */
+  }
+  .pub-venue { line-height: 1.15; margin-top: 0.08rem; font-family: inherit; color: #A0A0A0 }
+  /* .pub-venue { line-height: 1.35; margin-top: 0.08rem; font-family: inherit; } */
+  /* Optional BIB/PDF button row. */
+  .pub-links {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.45rem;
+  }
+  /* Single button style for publication links. */
+  .pub-link {
+    border: 1px solid #222;
+    border-radius: 4px;
+    padding: 0.16rem 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #222;
+    text-decoration: none;
+  }
+  .pub-link:hover { background: #f3f3f3; }
+  /* Section-specific aliases for easier future tweaks. */
+  .tech-list, .industry-list, .teach-list, .honors-list { margin: 0.6rem 0 0; padding: 0; list-style: none; }
+  .tech-item, .industry-item, .teach-item, .honors-item { margin: 0.65rem 0 0.9rem; }
+  .tech-label, .industry-title, .teach-course, .honors-title { font-weight: 600; font-size: 1rem; line-height: 1.35; }
+  .industry-meta, .teach-meta, .honors-meta { line-height: 1.3; margin-top: 0.1rem; color: #666; font-size: 0.95rem; }
+  /* Mobile layout: stack badge and content vertically. */
+  @media (max-width: 700px) {
+    .home-wrap { grid-template-columns: 1fr; }
+    .home-wrap { margin-left: auto; margin-right: auto; }
+    .top-nav {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin: 0.5rem 0 1rem;
+      position: static;
+    }
+    .pub-item { grid-template-columns: 1fr; row-gap: 0.45rem; }
+  }
 </style>
 
 <div class="home-wrap">
   <nav class="top-nav">
-    <a href="#about">About</a>
+    <a href="#about">Junsung Kim</a>
     <a href="#education">Education</a>
     <a href="#experience">Experience</a>
     <a href="#publications">Publications</a>
-    <a href="#moments">Moments</a>
+    <a href="#skills">Skills</a>
+    <a href="#industry-projects">Projects</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#honors">Honors</a>
+    <!-- <a href="#moments">Moments</a> -->
   </nav>
+  <div class="main-content">
 
   <section class="hero" id="about">
     <h1>Junsung Kim</h1>
     <p>
-      I am interested in building useful products and sharing what I learn.
-      This homepage is my personal space for projects, writing, and updates.
+      I am currently a Ph.D. student in Department of Electrical and Electronic Engineering at Yonsei University, advised by Prof. Won Woo Ro.
+      My research interests lie in GPU architecture and memory systems. In particular, my work focuses on designing efficient architectures and system features to support emerging AI or HPC applications on multi-GPU systems.
+      <!-- I am interested in building useful products and sharing what I learn. -->
+      <!-- This homepage is my personal space for projects, writing, and updates. -->
     </p>
-    <p><strong>Email:</strong> your-email@example.com</p>
+    <p><strong>Email:</strong> junsung.kim@yonsei.ac.kr</p>
   </section>
 
   <section id="education">
     <h2 class="section-title">Education</h2>
-    <div class="card">
-      <strong>Yonsei University</strong>
-      <div class="meta">Ph.D. student in Electrical and Electronic Engineering, 2024 - Present</div>
-      <div class="meta">Advisor: Prof. Won Woo Ro</div>
-    </div>
-    <div class="card">
-      <strong>Yonsei University</strong>
-      <div class="meta">M.S. in Electrical and Electronic Engineering, 2022 - 2024</div>
-      <div class="meta">Advisor: Prof. Won Woo Ro</div>
-    </div>
-    <div class="card">
-      <strong>Yonsei University</strong>
-      <div class="meta">B.S. in Electrical and Electronic Engineering, 2016 - 2022</div>
-      <div class="meta">Advisor: Prof. Won Woo Ro</div>
-    </div>
+    <ul class="cap-list">
+      <li class="cap-item">
+        <div class="cap-title">Yonsei University</div>
+        <div class="cap-sub">Ph.D. student in Electrical and Electronic Engineering, 2024 - Present</div>
+        <div class="cap-note">Advisor: Prof. Won Woo Ro</div>
+      </li>
+      <li class="cap-item">
+        <div class="cap-title">Yonsei University</div>
+        <div class="cap-sub">M.S. in Electrical and Electronic Engineering, 2022 - 2024</div>
+        <div class="cap-note">Advisor: Prof. Won Woo Ro</div>
+      </li>
+      <li class="cap-item">
+        <div class="cap-title">Yonsei University</div>
+        <div class="cap-sub">B.S. in Electrical and Electronic Engineering, 2016 - 2022</div>
+        <div class="cap-note">Advisor: Prof. Won Woo Ro</div>
+      </li>
+    </ul>
   </section>
 
   <section id="experience">
     <h2 class="section-title">Research Experience</h2>
-    <div class="card">
-      <strong>University of California, San Diego (UCSD)</strong>
-      <div class="meta">Visiting Scholar in Computer Science & Engineering, Feb. 2025 - Feb. 2026</div>
-      <div class="meta">Advisor: Prof. Yufei Ding</div>
-      <!-- <div>Add 1-2 lines about what you worked on.</div> -->
-    </div>
+    <ul class="cap-list">
+      <li class="cap-item">
+        <div class="cap-title">University of California, San Diego (UCSD)</div>
+        <div class="cap-sub">Visiting Scholar in Computer Science & Engineering, Feb. 2025 - Feb. 2026</div>
+        <div class="cap-note">Advisor: Prof. Yufei Ding</div>
+      </li>
+    </ul>
   </section>
 
   <section id="publications">
     <h2 class="section-title">Publications</h2>
-    <div class="card">
-      <strong>(To appear) Reducing Page Faults via Invalidation-based Mapping Propagation in Multi-GPU Systems</strong>
-      <div class="authors"><u>Junsung Kim</u>, Dongho Ha, Sungwoo Kim, Wonho Cho, Sungbin Kim, Yufei Ding, and Won Woo Ro</div>
-      <div class="meta">International Symposium on Computer Architecture (ISCA), 2026</div>
-      <!-- <div>Short description and link placeholders (PDF / Code / Bib).</div> -->
+    <!-- Publication category heading. -->
+    <!-- <div class="pub-group">International Conference Papers</div> -->
+    <!-- One publication item starts here. -->
+    <div class="pub-item">
+      <!-- Left badge: short label for venue/year. -->
+      <div><span class="pub-badge">ISCA'26</span></div>
+      <!-- Right content: title, authors, venue, optional links. -->
+      <div class="pub-content">
+        <div class="pub-title">(To appear) Reducing Page Faults via Invalidation-based Mapping Propagation in Multi-GPU Systems</div>
+        <div class="pub-authors"><u>Junsung Kim</u>, Dongho Ha, Sungwoo Kim, Wonho Cho, Sungbin Kim, Yufei Ding, and Won Woo Ro</div>
+        <div class="pub-venue">International Symposium on Computer Architecture (ISCA), 2026</div>
+        <!-- Optional link buttons: replace # with real URLs when ready. -->
+        <!-- <div class="pub-links">
+          <a class="pub-link" href="#">BIB</a>
+          <a class="pub-link" href="#">PDF</a>
+        </div> -->
+      </div>
+    </div>
+    <div class="pub-item">
+      <div><span class="pub-badge">ISCA'26</span></div>
+      <div class="pub-content">
+        <div class="pub-title">(To appear) MXFP: Microscaling Flexible Floating Point Format for Large-Scale AI Model Acceleration</div>
+        <div class="pub-authors">Sungwoo Kim*, Sungbin Kim*, Dongho Ha, Hyunwuk Lee, <u>Junsung Kim</u>, Seunghyun Lee, Mingu Jung, Murali Annavaram, and Won Woo Ro</div>
+        <div class="pub-venue">International Symposium on Computer Architecture (ISCA), 2026</div>
+        <!-- <div class="pub-links">
+          <a class="pub-link" href="#">BIB</a>
+          <a class="pub-link" href="#">PDF</a>
+        </div> -->
+      </div>
+    </div>
+    <div class="pub-item">
+      <div><span class="pub-badge">ICCD'25</span></div>
+      <div class="pub-content">
+        <div class="pub-title">PIMFY: Eliminating Remote Page Walks in MCM GPUs</div>
+        <div class="pub-authors"><u>Junsung Kim</u>, Sungwoo Kim, Seunghyun Jin, Won Woo Ro</div>
+        <div class="pub-venue">The 43rd International Conference on Computer Design (ICCD), November 2025</div>
+        <!-- <div class="pub-links">
+          <a class="pub-link" href="#">BIB</a>
+          <a class="pub-link" href="#">PDF</a>
+        </div> -->
+      </div>
+    </div>
+    <!-- Publication category heading. -->
+    <!-- <div class="pub-group">Journal Papers</div> -->
+    <div class="pub-item">
+      <div><span class="pub-badge">JSA'24</span></div>
+      <div class="pub-content">
+        <div class="pub-title">SHREG: Mitigating register redundancy in GPUs</div>
+        <div class="pub-authors">Seunghyun Jin, Hyunwuk Lee, Jonghyun Lee, <u>Junsung Kim</u>, and Won Woo Ro</div>
+        <div class="pub-venue">Journal of Systems Architecture (JSA), July 2024</div>
+        <!-- <div class="pub-links">
+          <a class="pub-link" href="#">BIB</a>
+          <a class="pub-link" href="#">PDF</a>
+        </div> -->
+      </div>
+    </div>
+    <div class="pub-item">
+      <div><span class="pub-badge">ISPASS'23</span></div>
+      <div class="pub-content">
+        <div class="pub-title">Early-Adaptor: An Adaptive Framework for Proactive UVM Memory Management</div>
+        <div class="pub-authors">Seokjin Go, Hyunwuk Lee, <u>Junsung Kim</u>, Jiwon Lee, Myung Kuk Yoon, Won Woo Ro</div>
+        <div class="pub-venue">International Symposium on Performance Analysis of Systems and Software (ISPASS), April 2023</div>
+        <!-- <div class="pub-links">
+          <a class="pub-link" href="#">BIB</a>
+          <a class="pub-link" href="#">PDF</a>
+        </div> -->
+      </div>
     </div>
   </section>
 
+  <section id="skills">
+    <h2 class="section-title">Technical Skills</h2>
+    <ul class="tech-list">
+      <li class="tech-item"><span class="tech-label">Expertise:</span> GPU architecture and memory systems, Address translation, Large language models</li>
+      <li class="tech-item"><span class="tech-label">Programming Languages:</span> Go, C/C++, Python, Verilog HDL</li>
+      <li class="tech-item"><span class="tech-label">Development Tools:</span> MGPUSim, Accel-sim, GPGPU-Sim, Gem5</li>
+    </ul>
+  </section>
+
+  <section id="industry-projects">
+    <h2 class="section-title">Industry Projects</h2>
+    <ul class="industry-list">
+      <li class="industry-item">
+        <div class="industry-title">Develop a Framework for CPU Performance Exploration</div>
+        <div class="industry-meta">Samsung Electronics, 2024 - 2025</div>
+      </li>
+      <li class="industry-item">
+        <div class="industry-title">Development of a Memory-Centric Architecture Based on Reconfigurable PIM Devices</div>
+        <div class="industry-meta">Institute for Information & Communication Technology Planning & Evaluation (Korea Government), 2023</div>
+      </li>
+      <li class="industry-item">
+        <div class="industry-title">Development of a Large-Scale Parallel Processing Unit Architecture for Supercomputer CPUs</div>
+        <div class="industry-meta">Electronics and Telecommunications Research Institute (Korea Government), 2022 - 2023</div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="teaching">
+    <h2 class="section-title">Teaching Experience</h2>
+    <ul class="teach-list">
+      <li class="teach-item">
+        <div class="teach-course">EEE4473 Embedded System Lab.</div>
+        <div class="teach-meta">Teaching Assistant, Yonsei University, 2023</div>
+      </li>
+      <li class="teach-item">
+        <div class="teach-course">EEE3535 Operating Systems</div>
+        <div class="teach-meta">Teaching Assistant, Yonsei University, 2022</div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="honors">
+    <h2 class="section-title">Honors and Awards</h2>
+    <ul class="honors-list">
+      <li class="honors-item">
+        <div class="honors-title">Academic Honors</div>
+        <div class="honors-meta">Yonsei University, 2021-2</div>
+      </li>
+      <li class="honors-item">
+        <div class="honors-title">Grand Prize in AIM Conference</div>
+        <div class="honors-meta">Yonsei University LINC+ 4th Industrial Revolution Innovation Program, 2021</div>
+      </li>
+    </ul>
+  </section>
+<!-- 
   <section id="moments">
     <h2 class="section-title">Moments</h2>
     <p>
       You can add quick updates, photos, or short notes here.
     </p>
-  </section>
+  </section> -->
+
+  <script>
+    (function () {
+      const navLinks = Array.from(document.querySelectorAll(".top-nav a[href^='#']"));
+      const sectionById = new Map();
+
+      navLinks.forEach((link) => {
+        const id = link.getAttribute("href").slice(1);
+        const section = document.getElementById(id);
+        if (section) sectionById.set(id, section);
+      });
+
+      const setActive = (id) => {
+        navLinks.forEach((link) => {
+          const linkId = link.getAttribute("href").slice(1);
+          link.classList.toggle("is-active", linkId === id);
+        });
+      };
+
+      const visibleIds = new Set();
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const id = entry.target.id;
+            if (entry.isIntersecting) visibleIds.add(id);
+            else visibleIds.delete(id);
+          });
+
+          const firstVisibleId = Array.from(sectionById.keys()).find((id) => visibleIds.has(id));
+          if (firstVisibleId) setActive(firstVisibleId);
+        },
+        { rootMargin: "-20% 0px -65% 0px", threshold: 0.05 }
+      );
+
+      sectionById.forEach((section) => observer.observe(section));
+
+      const initialId = window.location.hash ? window.location.hash.slice(1) : "about";
+      if (sectionById.has(initialId)) setActive(initialId);
+    })();
+  </script>
+  </div>
 </div>
