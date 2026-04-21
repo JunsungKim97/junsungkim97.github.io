@@ -38,8 +38,10 @@ title: Home
     transition: color 0.18s ease;
   }
   .top-nav a:visited { color: #0ACAE1; }
-  .top-nav a:hover { color: #0ea5e9; }
-  .top-nav a:active { color: #0284c7; }
+  /* .top-nav a:hover { color: #0ea5e9; } */
+  /* .top-nav a:active { color: #0284c7; } */
+  .top-nav a:hover { color: #0ACAE1; }
+  .top-nav a:active { color: #0ACAE1; }
   .top-nav a.is-active {
     color: #0284c7;
     font-weight: 605;
@@ -179,18 +181,19 @@ title: Home
     <ul class="cap-list">
       <li class="cap-item">
         <div class="cap-title">Yonsei University</div>
-        <div class="cap-sub">Ph.D. student in Electrical and Electronic Engineering, 2024 - Present</div>
-        <div class="cap-note">Advisor: Prof. Won Woo Ro</div>
+        <div class="cap-sub">Ph.D. student in Electrical and Electronic Engineering, 2022 - Present</div>
+        <div class="cap-note">Advisor: Prof. <a href="http://escal.yonsei.ac.kr/professor.html" target="_blank" rel="noopener noreferrer" style="color: #0ACAE1; font-weight: 500; text-decoration: underline; underline;">Won Woo Ro</a></div>
       </li>
-      <li class="cap-item">
+      <!-- <li class="cap-item">
         <div class="cap-title">Yonsei University</div>
         <div class="cap-sub">M.S. in Electrical and Electronic Engineering, 2022 - 2024</div>
-        <div class="cap-note">Advisor: Prof. Won Woo Ro</div>
-      </li>
+        <div class="cap-note">Advisor: Prof. <a href="http://escal.yonsei.ac.kr/professor.html" target="_blank" rel="noopener noreferrer" style="color: #0ACAE1; font-weight: 500; text-decoration: underline; underline;">Won Woo Ro</a></div> -->
+      <!-- </li> -->
       <li class="cap-item">
         <div class="cap-title">Yonsei University</div>
         <div class="cap-sub">B.S. in Electrical and Electronic Engineering, 2016 - 2022</div>
-        <div class="cap-note">Advisor: Prof. Won Woo Ro</div>
+        <!-- <div class="cap-note">Advisor: Prof. <a href="http://escal.yonsei.ac.kr/professor.html" target="_blank" rel="noopener noreferrer" style="color: #0ACAE1; font-weight: 500; text-decoration: underline; underline;">Won Woo Ro</a></div> -->
+        <!-- <div class="cap-note">Advisor: Prof. Won Woo Ro</div> -->
       </li>
     </ul>
   </section>
@@ -201,7 +204,8 @@ title: Home
       <li class="cap-item">
         <div class="cap-title">University of California, San Diego (UCSD)</div>
         <div class="cap-sub">Visiting Scholar in Computer Science & Engineering, Feb. 2025 - Feb. 2026</div>
-        <div class="cap-note">Advisor: Prof. Yufei Ding</div>
+        <div class="cap-note">Advisor: Prof. <a href="https://sites.google.com/ucsd.edu/yufeiding" target="_blank" rel="noopener noreferrer" style="color: #0ACAE1; font-weight: 500; text-decoration: underline; underline; text-underline-offset: 0.32em;">Yufei Ding</a></div>
+        <!-- <div class="cap-note">Advisor: Prof.<a href="https://sites.google.com/ucsd.edu/yufeiding" target="_blank" rel="noopener noreferrer" style="color: #8a8a8a; font-weight: 550; text-decoration: underline; text-underline-offset: 0.30em;"> Yufei Ding</a></div> -->
       </li>
     </ul>
   </section>
