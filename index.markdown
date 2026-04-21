@@ -197,7 +197,7 @@ title: Home
       <div class="hero-text">
         <h1>Junsung Kim</h1>
         <p>
-          Hi! I am currently a fifth-year Ph.D. student in the Department of Electrical and Electronic Engineering at Yonsei University, advised by Prof. Won Woo Ro. My research interests lie in GPU architecture, multi-GPU memory systems, MCM GPUs, wafer-scale systems, and virtual memory. Currently, my work focuses on designing efficient architectural and system support for emerging AI and HPC applications running on multi-GPU, MCM-GPU, and wafer-scale platforms.
+          Hi! I am currently a fifth-year Ph.D. student in the Department of Electrical and Electronic Engineering at Yonsei University, advised by Prof. Won Woo Ro. My research interests lie in GPU architecture and memory systems. Currently, my work focuses on designing efficient architectural and system support for emerging AI and HPC applications running on multi-GPU, MCM-GPU, and wafer-scale platforms.
         </p>
         <p><strong>Email:</strong> junsung.kim@yonsei.ac.kr</p>
       </div>
