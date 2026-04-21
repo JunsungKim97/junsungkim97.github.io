@@ -4,4 +4,4 @@ title: Memory
 permalink: /memory/
 ---
 
-To be continue
+More coming soon!
