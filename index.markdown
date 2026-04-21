@@ -49,6 +49,32 @@ title: Home
   .main-content { min-width: 0; }
   .hero { margin-bottom: 1.75rem; }
   .hero h1 { margin-bottom: 0.35rem; }
+  /* About: text left, photo right */
+  .hero-about {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .hero-text { flex: 1; min-width: 0; }
+  .hero-photo {
+    flex-shrink: 0;
+    margin: 0;
+  }
+  .hero-photo img {
+    display: block;
+    width: 200px;
+    max-width: 42vw;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #e5e7eb;
+  }
+  @media (max-width: 600px) {
+    .hero-about { flex-direction: column-reverse; }
+    .hero-photo img { max-width: 220px; width: 100%; }
+  }
   .section-title {
     margin-top: 2.2rem;
     margin-bottom: 0.7rem;
@@ -166,14 +192,25 @@ title: Home
   <div class="main-content">
 
   <section class="hero" id="about">
-    <h1>Junsung Kim</h1>
-    <p>
-      I am currently a Ph.D. student in Department of Electrical and Electronic Engineering at Yonsei University, advised by Prof. Won Woo Ro.
-      My research interests lie in GPU architecture and memory systems. In particular, my work focuses on designing efficient architectures and system features to support emerging AI or HPC applications on multi-GPU systems.
-      <!-- I am interested in building useful products and sharing what I learn. -->
-      <!-- This homepage is my personal space for projects, writing, and updates. -->
-    </p>
-    <p><strong>Email:</strong> junsung.kim@yonsei.ac.kr</p>
+    <div class="hero-about">
+      <div class="hero-text">
+        <h1>Junsung Kim</h1>
+        <p>
+          I am currently a Ph.D. student in Department of Electrical and Electronic Engineering at Yonsei University, advised by Prof. Won Woo Ro.
+          My research interests lie in GPU architecture and memory systems. In particular, my work focuses on designing efficient architectures and system features to support emerging AI or HPC applications on multi-GPU systems.
+        </p>
+        <p><strong>Email:</strong> junsung.kim@yonsei.ac.kr</p>
+      </div>
+      <figure class="hero-photo">
+        <img
+          src="{{ '/assets/profile.png' | relative_url }}"
+          alt="Junsung Kim"
+          width="200"
+          height="250"
+          loading="lazy"
+        />
+      </figure>
+    </div>
   </section>
 
   <section id="education">
