@@ -34,7 +34,8 @@ title: Home
   .top-nav a {
     text-decoration: none;
     line-height: 1.3;
-    color:rgb(141, 162, 191);
+    /* color:rgb(141, 162, 191); */
+    color: #0ACAE1;
     transition: color 0.18s ease;
   }
   .top-nav a:visited { color: #0ACAE1; }
