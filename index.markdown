@@ -72,6 +72,18 @@ title: Home
     object-fit: cover;
     border: 1px solid #e5e7eb;
   }
+  .research-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0.55rem 0 0.2rem;
+  }
+  .research-list {
+    margin-top: 0.2rem;
+    margin-bottom: 0.9rem;
+  }
+  .research-list li {
+    white-space: nowrap;
+  }
   @media (max-width: 600px) {
     .hero-about { flex-direction: column-reverse; }
     .hero-photo img { max-width: 220px; width: 100%; }
@@ -199,6 +211,16 @@ title: Home
         <p>
           Hi! I am currently a fifth-year Ph.D. student in the Department of Electrical and Electronic Engineering at Yonsei University, advised by Prof. Won Woo Ro. My research interests lie in GPU architecture and memory systems. Currently, my work focuses on designing efficient architectural and system support for emerging AI and HPC applications running on multi-GPU, MCM-GPU, and wafer-scale platforms.
         </p>
+        <p class="research-title"><strong>Research Interests</strong></p>
+        <ul class="research-list">
+          <li>Computer Architecture</li>
+          <li>Performance Modeling and Simulation Methodology</li>
+          <li>GPU and Accelerator Architecture</li>
+          <!-- <li>Memory Systems and Memory Hierarchy</li> -->
+          <li>GPU Memory Systems, UVM, Address Translation, MMU, and Cache</li>
+          <li>Multi-GPU, MCM GPU, Wafer-scale Systems</li>
+          <!-- <li>Hardware-Software Co-Design</li> -->
+        </ul>
         <p><strong>Email:</strong> junsung.kim@yonsei.ac.kr</p>
       </div>
       <figure class="hero-photo">
@@ -322,9 +344,11 @@ title: Home
   <section id="skills">
     <h2 class="section-title">Technical Skills</h2>
     <ul class="tech-list">
-      <li class="tech-item"><span class="tech-label">Expertise:</span> GPU architecture and memory systems, Address translation, Large language models</li>
-      <li class="tech-item"><span class="tech-label">Programming Languages:</span> Go, C/C++, Python, Verilog HDL</li>
+      <!-- <li class="tech-item"><span class="tech-label">Expertise:</span> GPU architecture and memory systems, Address translation, Large language models</li> -->
+<!-- - Research Workflow: performance analysis, simulator modification, experimental automation, trace analysis -->
+      <li class="tech-item"><span class="tech-label">Programming Languages:</span> Go, C/C++, Python, CUDA, Verilog HDL</li>
       <li class="tech-item"><span class="tech-label">Development Tools:</span> MGPUSim, Accel-sim, GPGPU-Sim, Gem5</li>
+      <li class="tech-item"><span class="tech-label">Research Workflow:</span> performance analysis, simulator modification, experimental automation, trace analysis</li>
     </ul>
   </section>
 
