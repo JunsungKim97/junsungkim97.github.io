@@ -276,6 +276,21 @@ title: Home
     <!-- One publication item starts here. -->
     <div class="pub-item">
       <!-- Left badge: short label for venue/year. -->
+      <div><span class="pub-badge">ArXiv</span></div>
+      <!-- Right content: title, authors, venue, optional links. -->
+      <div class="pub-content">
+        <div class="pub-title">AMMA: A Multi-Chiplet Memory-Centric Architecture for Low-Latency 1M Context Attention Serving</div>
+        <div class="pub-authors">Zhongkai Yu, Haotian Ye, Chenyang Zhou, Ohm Rishabh Venkatachalam, Zaifeng Pan, Zhengding Hu, <u>Junsung Kim</u>, Won Woo Ro, Po-An Tsai, Shuyi Pei, Yangwook Kang, and Yufei Ding</div>
+        <div class="pub-venue">arXiv preprint arXiv:2604.26103, 2026</div>
+        <!-- Optional link buttons: replace # with real URLs when ready. -->
+        <!-- <div class="pub-links">
+          <a class="pub-link" href="#">BIB</a>
+          <a class="pub-link" href="#">PDF</a>
+        </div> -->
+      </div>
+    </div>
+    <div class="pub-item">
+      <!-- Left badge: short label for venue/year. -->
       <div><span class="pub-badge">ISCA'26</span></div>
       <!-- Right content: title, authors, venue, optional links. -->
       <div class="pub-content">
