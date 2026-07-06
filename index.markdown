@@ -294,7 +294,7 @@ title: Home
       <div><span class="pub-badge">ISCA'26</span></div>
       <!-- Right content: title, authors, venue, optional links. -->
       <div class="pub-content">
-        <div class="pub-title">(To appear) Reducing Page Faults via Invalidation-based Mapping Propagation in Multi-GPU Systems</div>
+        <div class="pub-title">Reducing Page Faults via Invalidation-based Mapping Propagation in Multi-GPU Systems</div>
         <div class="pub-authors"><u>Junsung Kim</u>, Dongho Ha, Sungwoo Kim, Wonho Cho, Sungbin Kim, Yufei Ding, and Won Woo Ro</div>
         <div class="pub-venue">International Symposium on Computer Architecture (ISCA), 2026</div>
         <!-- Optional link buttons: replace # with real URLs when ready. -->
@@ -307,7 +307,7 @@ title: Home
     <div class="pub-item">
       <div><span class="pub-badge">ISCA'26</span></div>
       <div class="pub-content">
-        <div class="pub-title">(To appear) MXFP: Microscaling Flexible Floating Point Format for Large-Scale AI Model Acceleration</div>
+        <div class="pub-title">MXFP: Microscaling Flexible Floating Point Format for Large-Scale AI Model Acceleration</div>
         <div class="pub-authors">Sungwoo Kim*, Sungbin Kim*, Dongho Ha, Hyunwuk Lee, <u>Junsung Kim</u>, Seunghyun Lee, Mingu Jung, Murali Annavaram, and Won Woo Ro</div>
         <div class="pub-venue">International Symposium on Computer Architecture (ISCA), 2026</div>
         <!-- <div class="pub-links">
