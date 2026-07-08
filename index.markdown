@@ -152,6 +152,8 @@ title: Home
     /* text-decoration-thickness: 1.5px; */
   }
   .pub-venue { line-height: 1.15; margin-top: 0.08rem; font-family: inherit; color: #A0A0A0 }
+  .pub-link { line-height: 1.15; margin-top: 0.08rem; font-family: inherit; color: #A0A0A0 }
+
   /* .pub-venue { line-height: 1.35; margin-top: 0.08rem; font-family: inherit; } */
   /* Optional BIB/PDF button row. */
   .pub-links {
@@ -282,7 +284,7 @@ title: Home
         <div class="pub-title">AMMA: A Multi-Chiplet Memory-Centric Architecture for Low-Latency 1M Context Attention Serving</div>
         <div class="pub-authors">Zhongkai Yu, Haotian Ye, Chenyang Zhou, Ohm Rishabh Venkatachalam, Zaifeng Pan, Zhengding Hu, <u>Junsung Kim</u>, Won Woo Ro, Po-An Tsai, Shuyi Pei, Yangwook Kang, and Yufei Ding</div>
         <div class="pub-venue">International Symposium on Microarchitecture (MICRO 2026)</div>
-        <div class="pub-venue">arXiv preprint arXiv:2604.26103, 2026</div>
+        <a href="https://arxiv.org/abs/2604.26103" target="_blank" rel="noopener noreferrer" style="color:rgb(95, 132, 136); font-weight: 400; text-decoration: underline; underline; text-underline-offset: 0.32em;">arXiv preprint arXiv:2604.26103</a>
         <!-- Optional link buttons: replace # with real URLs when ready. -->
         <!-- <div class="pub-links">
           <a class="pub-link" href="#">BIB</a>
@@ -403,6 +405,11 @@ title: Home
   <section id="honors">
     <h2 class="section-title">Honors and Awards</h2>
     <ul class="honors-list">
+      <li class="honors-item">
+        <div class="honors-title">ISCA'26 Student Travel Grant</div>
+        <div class="honors-meta">June 2026</div>
+        <!-- <div class="honors-meta">Yonsei University LINC+ 4th Industrial Revolution Innovation Program, 2021</div> -->
+      </li>
       <li class="honors-item">
         <div class="honors-title">Academic Honors</div>
         <div class="honors-meta">Yonsei University, 2021-2</div>
